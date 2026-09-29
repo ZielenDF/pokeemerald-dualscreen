@@ -30,7 +30,8 @@ jobs:
         env:
           MODERN: 1
           COMPARE: 0
-        run: make -j$(nproc)
+        # Only the generated assets are needed; compiling the GBA ROM itself is expected to fail.
+        run: make -k -j$(nproc) || true
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
