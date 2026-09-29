@@ -41,7 +41,6 @@ static u8* AllocateEmeraldString(ScriptOverride *ov, const char *str) {
     int len = strlen(str);
     if (len >= MAX_STRING_SIZE) len = MAX_STRING_SIZE - 1;
     
-    extern void *malloc(unsigned int);
     u8 *emStr = malloc(len + 1);
     
     for (int i = 0; i < len; i++) {
@@ -99,7 +98,6 @@ void ModScripts_LoadOverrides(LoadedMod *mod) {
             ov->objectIndex = objectIndexObj->valueint;
             ov->numStrings = 0;
             
-            extern void *malloc(unsigned int);
             ov->bytecode = malloc(MAX_BYTECODE_SIZE);
             int pc = 0;
             
