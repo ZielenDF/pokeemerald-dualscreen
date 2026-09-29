@@ -29,7 +29,7 @@ jobs:
       - name: Build tools and generate headers
         env:
           MODERN: 1
-        run: make -j$(nproc) tools generated
+        run: make -j$(nproc) tools && make -j$(nproc) generated
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
